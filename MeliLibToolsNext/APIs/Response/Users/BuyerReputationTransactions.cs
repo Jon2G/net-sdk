@@ -2,14 +2,14 @@
 
 namespace MeliLibToolsNext.APIs.Response.Users;
 
-public class NotYetRated
+public class BuyerReputationTransactions
 {
     [JsonProperty("total")]
-    public object Total { get; set; }
+    public int? Total { get; set; }
 
     [JsonProperty("paid")]
-    public object Paid { get; set; }
+    public int? Paid { get; set; }
 
     [JsonProperty("units")]
-    public object Units { get; set; }
+    public int? Units { get; set; }
 }

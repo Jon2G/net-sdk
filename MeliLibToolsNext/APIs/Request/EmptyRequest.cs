@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeliLibToolsNext.APIs.Request
 {
-    public class EmptyRequest(Dictionary<string, string>? query=null) :RequestBase(query)
+    public class EmptyRequest() :RequestBase()
     {
     }
 }

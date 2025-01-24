@@ -3,16 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Flurl.Http;
 using MeliLibToolsNext.APIs;
+using MeliLibToolsNext.APIs.Request;
+using Newtonsoft.Json;
 
 namespace MeliLibToolsNext
 {
     public static class API
     {
-        private static readonly Lazy<APIs.Items> _Items = new Lazy<Items>(() => new());
+        internal const string BaseUrl = "https://api.mercadolibre.com";
+        private static readonly Lazy<APIs.Items> _Items = new(() => new());
         public static Items Items => _Items.Value;
 
-        private static readonly Lazy<APIs.Users> _Users = new Lazy<Users>(() => new());
+        private static readonly Lazy<APIs.Users> _Users = new(() => new());
         public static Users Users => _Users.Value;
+
+        internal static Flurl.Http.FlurlClient Client { get; private set; }
+        public static void Configure(string appId, string clientSecret)
+        {
+            APIsBase.AppId = appId;
+            APIsBase.ClientSecret = clientSecret;
+
+            // this is needed when serializing classes to prevent circular loop error
+            var settings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
+            // create a Newtonsoft-based serializer for Flurl to use
+            var serializer = new Flurl.Http.Newtonsoft.NewtonsoftJsonSerializer(settings);
+
+            Client = new Flurl.Http.FlurlClient(BaseUrl);
+            Client = Client.WithSettings(settings => settings.JsonSerializer = serializer);
+        }
     }
 }

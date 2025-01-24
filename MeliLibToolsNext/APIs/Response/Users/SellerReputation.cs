@@ -11,5 +11,5 @@ public class SellerReputation
     public object PowerSellerStatus { get; set; }
 
     [JsonProperty("transactions")]
-    public Transactions Transactions { get; set; }
+    public SellerReputationTransactions Transactions { get; set; }
 }

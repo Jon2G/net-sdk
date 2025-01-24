@@ -7,13 +7,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MeliLibToolsNext.APIs.Request.User;
 using MeliLibToolsNext.APIs.Response.Applications;
 
 namespace MeliLibToolsNext.APIs
 {
     public class Applications : APIsBase
     {
-        protected override string Path => "applications";
+        internal override string Path => "applications";
 
         [AvaibleHttpMethods(HttpMethods.GET)]
         public Task<Response<ApplicationData?>> Get(ApplicationRequest request) => base.Get<ApplicationData>(request);

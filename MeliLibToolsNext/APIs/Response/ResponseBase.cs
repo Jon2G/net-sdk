@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace MeliLibToolsNext.APIs.Response
 {
-    public abstract class Response<T>(T data)
+    public class Response
     {
-        public T Data { get; } = data;
+        public Response()
+        {
+            
+        }
+    }
+    public class Response<T>(T? data) : Response
+    {
+        public T? Data { get; } = data;
     }
 }

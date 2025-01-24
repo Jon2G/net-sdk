@@ -10,7 +10,20 @@ using System.Threading.Tasks;
 namespace MeliLibToolsNext.APIs.Response.Users
 {// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
 
+    public class SimpleAdress
+    {
+        [JsonProperty("address")]
+        public string Address { get; set; }
 
+        [JsonProperty("city")]
+        public string City { get; set; }
+
+        [JsonProperty("state")]
+        public string State { get; set; }
+
+        [JsonProperty("zip_code")]
+        public string ZipCode { get; set; }
+    }
     public class User
     {
         [JsonProperty("id")]
@@ -38,7 +51,7 @@ namespace MeliLibToolsNext.APIs.Response.Users
         public Identification Identification { get; set; }
 
         [JsonProperty("address")]
-        public AddressData Address { get; set; }
+        public SimpleAdress Address { get; set; }
 
         [JsonProperty("phone")]
         public Phone Phone { get; set; }

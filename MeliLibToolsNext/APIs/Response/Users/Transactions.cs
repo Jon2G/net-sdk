@@ -14,14 +14,14 @@ public class Transactions
     public int? Completed { get; set; }
 
     [JsonProperty("canceled")]
-    public int? Canceled { get; set; }
+    public BuyerReputationTransactions? Canceled { get; set; }
 
     [JsonProperty("ratings")]
     public Ratings Ratings { get; set; }
 
     [JsonProperty("unrated")]
-    public Unrated Unrated { get; set; }
+    public BuyerReputationTransactions? Unrated { get; set; }
 
     [JsonProperty("not_yet_rated")]
-    public NotYetRated NotYetRated { get; set; }
+    public BuyerReputationTransactions? NotYetRated { get; set; }
 }

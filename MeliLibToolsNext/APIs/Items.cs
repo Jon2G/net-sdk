@@ -10,7 +10,7 @@ namespace MeliLibToolsNext.APIs
 {
     public class Items : APIsBase
     {
-        protected override string Path => "items";
+        internal override string Path => "items";
 
         public Task<Response<Item?>> Get(string meliId)
         {
