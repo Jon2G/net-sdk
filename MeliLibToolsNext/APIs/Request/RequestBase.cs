@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
+using MeliLibToolsNext.APIs.Base;
 using MeliLibToolsNext.Attributes;
 
 namespace MeliLibToolsNext.APIs.Request
@@ -43,7 +44,7 @@ namespace MeliLibToolsNext.APIs.Request
                 switch (queryParameter.ParameterType)
                 {
                     case QueryParameterType.NAME_AND_VALUE:
-                        request.AppendQueryParam("access_token", APIsBase.AccessToken.AccessToken);
+                        request.AppendQueryParam(queryParameter.Name, queryParameter.Value);
                         break;
                     case QueryParameterType.NAME_ONLY:
                         request.AppendPathSegment(queryParameter.Name);
@@ -60,5 +61,6 @@ namespace MeliLibToolsNext.APIs.Request
 
             return request;
         }
+
     }
 }

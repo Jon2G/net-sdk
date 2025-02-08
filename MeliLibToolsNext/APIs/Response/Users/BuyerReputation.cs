@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
+using Newtonsoft.Json;
 
 namespace MeliLibToolsNext.APIs.Response.Users;
 
-public class BuyerReputation
+public class BuyerReputation:IHaveTags
 {
     [JsonProperty("canceled_transactions")]
     public int? CanceledTransactions { get; set; }
@@ -11,5 +12,5 @@ public class BuyerReputation
     public Transactions Transactions { get; set; }
 
     [JsonProperty("tags")]
-    public List<object> Tags { get; set; }
+    public List<string> Tags { get; set; }
 }

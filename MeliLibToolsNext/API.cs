@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Flurl.Http;
 using MeliLibToolsNext.APIs;
+using MeliLibToolsNext.APIs.Base;
 using MeliLibToolsNext.APIs.Request;
 using Newtonsoft.Json;
 
@@ -18,6 +19,10 @@ namespace MeliLibToolsNext
 
         private static readonly Lazy<APIs.Users> _Users = new(() => new());
         public static Users Users => _Users.Value;
+
+        private static readonly Lazy<APIs.Products> _Products = new(() => new());
+        public static Products Products => _Products.Value;
+        
 
         internal static Flurl.Http.FlurlClient Client { get; private set; }
         public static void Configure(string appId, string clientSecret)

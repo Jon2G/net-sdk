@@ -15,5 +15,21 @@ namespace MeliLibToolsNext.APIs.Request
         public object? Value { get; set; } = value;
         public QueryParameterType ParameterType { get; } = parameterType ?? QueryParameterType.NAME_AND_VALUE;
 
+
+
+    }
+    internal static class QueryParameterConverter
+    {
+
+        public static QueryParameter MultiValuesQueryParameter(this QueryParameter queryParameter)
+        {
+            if(queryParameter.Value is not string[])
+            {
+                throw new ArgumentException("Value must be a string array");
+            }
+            queryParameter.Value = string.Join(",",(string[])queryParameter.Value);
+            return queryParameter;
+        }
+
     }
 }

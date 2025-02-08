@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MeliLibToolsNext.APIs.Response.Brands
 {
-    public class BrandsData
+    public class BrandsData:IHaveTags
     {
         [JsonProperty("cust_id")]
         public int? CustId { get; set; }

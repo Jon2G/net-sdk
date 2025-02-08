@@ -8,7 +8,7 @@ using MeliLibToolsNext.APIs.Request;
 namespace MeliLibToolsNext.Attributes
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-    public class AvaibleHttpMethodsAttribute(HttpMethods method):Attribute
+    internal class AvaibleHttpMethodsAttribute(HttpMethods method):Attribute
     {
         public HttpMethods Method { get; } = method;
     }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MeliLibToolsNext.APIs.Response.Users
 {
-// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Headers
     {
         [JsonProperty("accept")]
@@ -59,10 +60,10 @@ namespace MeliLibToolsNext.APIs.Response.Users
         public Response Response { get; set; }
     }
 
-    public class Request
+    public class Request : IHaveUrl
     {
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         [JsonProperty("headers")]
         public Headers Headers { get; set; }

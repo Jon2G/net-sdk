@@ -10,6 +10,7 @@ using MeliLibToolsNext.APIs.Response;
 using MeliLibToolsNext.APIs.Response.Brands;
 using MeliLibToolsNext.APIs.Request.User;
 using MeliLibToolsNext.APIs.Response.Applications;
+using MeliLibToolsNext.APIs.Base;
 
 namespace MeliLibToolsNext.APIs
 {

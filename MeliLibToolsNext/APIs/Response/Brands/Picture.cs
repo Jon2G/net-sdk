@@ -1,14 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
+using Newtonsoft.Json;
 
 namespace MeliLibToolsNext.APIs.Response.Brands;
 
-public class Picture
+public class Picture : IHaveName, IHaveStringId,IHaveUrl
 {
     [JsonProperty("id")]
-    public int? Id { get; set; }
+    public string? Id { get; set; }
 
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     [JsonProperty("secure_url")]
     public object SecureUrl { get; set; }
@@ -18,4 +19,10 @@ public class Picture
 
     [JsonProperty("size")]
     public string Size { get; set; }
+
+    [JsonProperty("max_size")]
+    public string MaxSize { get; set; }
+
+    [JsonProperty("quality")]
+    public string Quality { get; set; }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +25,10 @@ namespace MeliLibToolsNext.APIs.Response.Users
         [JsonProperty("zip_code")]
         public string ZipCode { get; set; }
     }
-    public class User
+    public class User:IHaveTags,IHaveLongId
     {
         [JsonProperty("id")]
-        public int? Id { get; set; }
+        public long? Id { get; set; }
 
         [JsonProperty("nickname")]
         public string Nickname { get; set; }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MeliLibToolsNext.APIs.Request.User;
 using MeliLibToolsNext.APIs.Response.Applications;
+using MeliLibToolsNext.APIs.Base;
 
 namespace MeliLibToolsNext.APIs
 {

@@ -12,7 +12,7 @@ using MeliLibToolsNext.APIs.Response;
 using MeliLibToolsNext.APIs.Response.Users;
 using MeliLibToolsNext.Attributes;
 
-namespace MeliLibToolsNext.APIs
+namespace MeliLibToolsNext.APIs.Base
 {
     public abstract class APIsBase
     {
@@ -36,12 +36,16 @@ namespace MeliLibToolsNext.APIs
 
         private MethodInfo GetMethod(string callerMember)
         {
-            MethodInfo? methodInfo = this.GetType().GetMethod(callerMember);
+            MethodInfo? methodInfo = GetType().GetMethod(callerMember);
             return methodInfo ?? throw new KeyNotFoundException();
         }
 
         private async Task Auth()
         {
+            if (string.IsNullOrEmpty(AppId) || string.IsNullOrEmpty(ClientSecret))
+            {
+                throw new InvalidOperationException("AppId and ClientSecret must be set by calling API.Configure('appId', 'clientSecret')");
+            }
             string url = $"/oauth/token?grant_type=client_credentials&client_id={AppId}&client_secret={ClientSecret}";
             var response = await API.Client.Request(url).PostAsync();
             //var str = await response.GetStringAsync();
@@ -77,13 +81,10 @@ namespace MeliLibToolsNext.APIs
 
         }
 
-        protected async Task<Response<T?>> Get<T>(RequestBase request, HttpMethods method = HttpMethods.GET, [CallerMemberName] string? callerMember = null)
+        protected async Task<IFlurlRequest> DoGet<T>(RequestBase request, HttpMethods method = HttpMethods.GET, [CallerMemberName] string? callerMember = null)
         {
             await Task.Yield();
 
-            //
-
-            //
             if (AccessToken is null)
             {
                 await Auth();
@@ -93,35 +94,18 @@ namespace MeliLibToolsNext.APIs
 
             VerifyMethod(methodInfo, method);
 
-
             var flurlRequest = request.BuildUrl(this, methodInfo);
 
+            return flurlRequest;
+        }
 
-            switch (method)
-            {
-                case HttpMethods.GET:
-                    var str = await flurlRequest.GetStringAsync();
-                    T? data = await flurlRequest.GetJsonAsync<T>();
-                   
-                    return new Response<T>(data);
+        protected async Task<Response.Response<T>> Get<T>(RequestBase request, HttpMethods method = HttpMethods.GET, [CallerMemberName] string? callerMember = null)
+        {
+            IFlurlRequest flurlRequest = await DoGet<T>(request: request, method: method, callerMember: callerMember);
+            var str = await flurlRequest.GetStringAsync();
 
-                case HttpMethods.POST:
-
-                case HttpMethods.PUT:
-
-
-                case HttpMethods.DELETE:
-
-                default:
-                    throw new InvalidOperationException("Method not allowed");
-            }
-
-            var response = await flurlRequest.WithOAuthBearerToken(ClientSecret).GetJsonAsync<Response<T?>>();
-
-
-
-
-
+            T? data = await flurlRequest.GetJsonAsync<T>();
+            return new Response<T>(data);
         }
 
 

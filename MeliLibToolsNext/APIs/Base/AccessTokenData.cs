@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace MeliLibToolsNext.APIs;
+namespace MeliLibToolsNext.APIs.Base;
 
-public class AccessTokenData
+internal class AccessTokenData
 {
     [JsonProperty("access_token")]
     public string AccessToken { get; set; }

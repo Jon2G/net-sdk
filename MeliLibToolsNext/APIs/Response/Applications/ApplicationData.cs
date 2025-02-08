@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MeliLibToolsNext.APIs.Response.Applications
 {
-    public class ApplicationData
+    public class ApplicationData : IHaveThumbnail, IHaveLongId,IHaveName,IHaveUrl
     {
         [JsonProperty("id")]
         public long? Id { get; set; }
@@ -16,13 +17,13 @@ namespace MeliLibToolsNext.APIs.Response.Applications
         public string SiteId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("description")]
         public string Description { get; set; }
 
         [JsonProperty("thumbnail")]
-        public object Thumbnail { get; set; }
+        public string Thumbnail { get; set; }
 
         [JsonProperty("owner_id")]
         public int? OwnerId { get; set; }
@@ -46,7 +47,7 @@ namespace MeliLibToolsNext.APIs.Response.Applications
         public string ShortName { get; set; }
 
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         [JsonProperty("callback_url")]
         public string CallbackUrl { get; set; }

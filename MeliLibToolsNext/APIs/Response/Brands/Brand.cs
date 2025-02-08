@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
+using Newtonsoft.Json;
 
 namespace MeliLibToolsNext.APIs.Response.Brands;
 
-public class Brand
+public class Brand: IHaveName,IHaveTags
 {
     [JsonProperty("tags")]
     public List<string> Tags { get; set; }
@@ -23,7 +24,7 @@ public class Brand
     public string Status { get; set; }
 
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     [JsonProperty("pictures")]
     public List<Picture> Pictures { get; set; }
