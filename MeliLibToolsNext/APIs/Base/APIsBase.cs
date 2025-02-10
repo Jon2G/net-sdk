@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -103,7 +104,7 @@ namespace MeliLibToolsNext.APIs.Base
         {
             IFlurlRequest flurlRequest = await DoGet<T>(request: request, method: method, callerMember: callerMember);
             var str = await flurlRequest.GetStringAsync();
-
+            Debug.WriteLine(str);
             T? data = await flurlRequest.GetJsonAsync<T>();
             return new Response<T>(data);
         }

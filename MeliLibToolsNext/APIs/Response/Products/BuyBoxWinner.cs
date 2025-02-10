@@ -21,7 +21,7 @@ namespace MeliLibToolsNext.APIs.Response.Products
         public int? SellerId { get; set; }
 
         [JsonProperty("price")]
-        public int? Price { get; set; }
+        public double? Price { get; set; }
 
         [JsonProperty("currency_id")]
         public string CurrencyId { get; set; }

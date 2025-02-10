@@ -24,7 +24,7 @@ namespace MeliLibToolsNext.APIs.Response
         public string? Title { get; set; }
 
         [JsonProperty("seller_id")]
-        public int? SellerId { get; set; }
+        public long? SellerId { get; set; }
 
         [JsonProperty("category_id")]
         public string? CategoryId { get; set; }
@@ -95,7 +95,7 @@ namespace MeliLibToolsNext.APIs.Response
         public string? Warranty { get; set; }
 
         [JsonProperty("catalog_product_id")]
-        public object CatalogProductId { get; set; }
+        public string CatalogProductId { get; set; }
 
         [JsonProperty("domain_id")]
         public string? DomainId { get; set; }

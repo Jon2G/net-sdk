@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -56,7 +57,7 @@ namespace MeliLibToolsNext.APIs.Request
             }
 
 
-
+            Debug.WriteLine(request.Url);
 
 
             return request;

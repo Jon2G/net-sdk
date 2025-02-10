@@ -27,5 +27,11 @@ namespace MeliLibToolsNext.APIs
 
         [AvaibleHttpMethods(HttpMethods.GET)]
         public Task<Response<SalePrice?>> SalePrice(SalePriceRequest request) => base.Get<SalePrice>(request);
+
+
+        
+
+        [AvaibleHttpMethods(HttpMethods.GET)]
+        public Task<Response<PriceToWin?>> PriceToWin(PriceToWinRequest request) => base.Get<PriceToWin>(request);
     }
 }
