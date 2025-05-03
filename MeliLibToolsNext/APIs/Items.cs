@@ -17,6 +17,7 @@ namespace MeliLibToolsNext.APIs
         internal override string Path => "items";
 
         [AvaibleHttpMethods(HttpMethods.GET)]
+        [Obsolete("Since April 2025 you cannot search on items of other sellers")]
         public async Task<Response<Item[]>> Get(params string[] meliId)
         {
             var response = await base.Get<BodyResponse<Item>[]>(new ItemRequest(meliId));
@@ -26,6 +27,7 @@ namespace MeliLibToolsNext.APIs
 
 
         [AvaibleHttpMethods(HttpMethods.GET)]
+        [Obsolete("Since April 2025 you cannot search on items of other sellers")]
         public Task<Response<SalePrice?>> SalePrice(SalePriceRequest request) => base.Get<SalePrice>(request);
 
 

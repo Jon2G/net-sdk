@@ -8,11 +8,8 @@ public class Winner
     public string ItemId { get; set; }
 
     [JsonProperty("price")]
-    public int? Price { get; set; }
+    public double? Price { get; set; }
 
     [JsonProperty("currency_id")]
     public string CurrencyId { get; set; }
-
-    [JsonProperty("boosts")]
-    public List<Boost> Boosts { get; set; }
 }

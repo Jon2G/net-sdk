@@ -11,6 +11,7 @@ namespace MeliLibToolsNext.Extensions
     {
         public static string GetStringValue(this Enum value)
         {
+#if NET9_0_OR_GREATER
             var type = value.GetType();
             var fieldInfo = type.GetField(value.ToString());
             var attributes = fieldInfo.GetCustomAttributes(false);
@@ -18,6 +19,9 @@ namespace MeliLibToolsNext.Extensions
                 return value.ToString();
             var attribute = attributes[0] as JsonStringEnumMemberNameAttribute;
             return attribute?.Name ?? value.ToString();
+#else
+            return value.ToString();
+#endif
         }
     }
 }

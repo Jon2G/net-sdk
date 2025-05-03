@@ -20,6 +20,8 @@ namespace MeliLibToolsNext.APIs.Base
 
         internal static string AppId { private get; set; }
         internal static string ClientSecret { private get; set; }
+        internal static string RedirectUrl { private get; set; }
+        internal static string Code { private get; set; }
         internal static AccessTokenData? AccessToken { get; set; }
         internal abstract string Path { get; }
 
@@ -43,13 +45,13 @@ namespace MeliLibToolsNext.APIs.Base
 
         private async Task Auth()
         {
-            if (string.IsNullOrEmpty(AppId) || string.IsNullOrEmpty(ClientSecret))
+            if (string.IsNullOrEmpty(AppId) || string.IsNullOrEmpty(ClientSecret)|| string.IsNullOrEmpty(RedirectUrl)||string.IsNullOrEmpty(Code))
             {
-                throw new InvalidOperationException("AppId and ClientSecret must be set by calling API.Configure('appId', 'clientSecret')");
+                throw new InvalidOperationException("AppId and ClientSecret must be set by calling API.Configure('appId', 'clientSecret','redirectUrl','code')");
             }
-            string url = $"/oauth/token?grant_type=client_credentials&client_id={AppId}&client_secret={ClientSecret}";
+            string url = $"/oauth/token?grant_type=client_credentials&client_id={AppId}&client_secret={ClientSecret}&code={Code}";
             var response = await API.Client.Request(url).PostAsync();
-            //var str = await response.GetStringAsync();
+            var str = await response.GetStringAsync();
             AccessToken = await response.GetJsonAsync<AccessTokenData>();
             if (string.IsNullOrEmpty(AccessToken.AccessToken) || AccessToken.UserId <= 0)
             {

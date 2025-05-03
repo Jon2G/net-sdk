@@ -16,6 +16,7 @@ namespace MeliLibToolsNext.APIs
     {
         internal override string Path => "products";
         [AvaibleHttpMethods(HttpMethods.GET)]
+        [Obsolete]
         public Task<Response<Product?>> Get(string productId)
         {
             return base.Get<Product>(new ProductRequest(productId));

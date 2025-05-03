@@ -13,7 +13,7 @@ namespace MeliLibToolsNext.APIs.Response.Items
         public string ItemId { get; set; }
 
         [JsonProperty("current_price")]
-        public int? CurrentPrice { get; set; }
+        public double? CurrentPrice { get; set; }
 
         [JsonProperty("currency_id")]
         public string CurrencyId { get; set; }
@@ -38,9 +38,6 @@ namespace MeliLibToolsNext.APIs.Response.Items
 
         [JsonProperty("catalog_product_id")]
         public string CatalogProductId { get; set; }
-
-        [JsonProperty("boosts")]
-        public List<Boost> Boosts { get; set; }
 
         [JsonProperty("winner")]
         public Winner Winner { get; set; }

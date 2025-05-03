@@ -9,10 +9,11 @@ namespace MeliLibToolsNext.Test
         const int UserId = 170099147;
         const string AppId = "9005856443171440";
         const string ClientSecret = "oghjNATLtotJfo3US6KzEfXkuzS5SI8r";
+        const string RedirectUrl="https://reparaciondeboiler.com/";
 
         public UsersAPITest()
         {
-            MeliLibToolsNext.API.Configure(AppId, ClientSecret);
+            MeliLibToolsNext.API.Configure(AppId, ClientSecret,RedirectUrl);
         }
 
         [Fact]

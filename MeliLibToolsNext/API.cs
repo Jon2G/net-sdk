@@ -25,10 +25,12 @@ namespace MeliLibToolsNext
         
 
         internal static Flurl.Http.FlurlClient Client { get; private set; }
-        public static void Configure(string appId, string clientSecret)
+        public static void Configure(string appId, string clientSecret,string redirectUrl,string code)
         {
             APIsBase.AppId = appId;
             APIsBase.ClientSecret = clientSecret;
+            APIsBase.RedirectUrl = redirectUrl;
+            APIsBase.Code = code;
 
             // this is needed when serializing classes to prevent circular loop error
             var settings = new JsonSerializerSettings
