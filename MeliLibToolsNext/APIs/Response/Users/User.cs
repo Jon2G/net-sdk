@@ -1,12 +1,5 @@
 ﻿using MeliLibToolsNext.APIs.LegoInterfaces;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MeliLibToolsNext.APIs.Response.Users
 {// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MeliLibToolsNext.Attributes;
-
-namespace MeliLibToolsNext.APIs.Request.User
+﻿namespace MeliLibToolsNext.APIs.Request.User
 {
     public class UserRequest(long? userId = null) : RequestBase(query:
     [

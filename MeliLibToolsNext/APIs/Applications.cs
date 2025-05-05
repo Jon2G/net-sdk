@@ -1,12 +1,6 @@
 ﻿using MeliLibToolsNext.APIs.Request;
-using MeliLibToolsNext.APIs.Response.Users;
 using MeliLibToolsNext.APIs.Response;
 using MeliLibToolsNext.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MeliLibToolsNext.APIs.Request.User;
 using MeliLibToolsNext.APIs.Response.Applications;
 using MeliLibToolsNext.APIs.Base;

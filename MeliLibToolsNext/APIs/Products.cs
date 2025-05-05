@@ -1,9 +1,4 @@
 ﻿using MeliLibToolsNext.APIs.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MeliLibToolsNext.APIs.Request;
 using MeliLibToolsNext.APIs.Response.Products;
 using MeliLibToolsNext.APIs.Request.Products;

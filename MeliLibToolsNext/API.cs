@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Flurl.Http;
+﻿using Flurl.Http;
 using MeliLibToolsNext.APIs;
 using MeliLibToolsNext.APIs.Base;
-using MeliLibToolsNext.APIs.Request;
 using Newtonsoft.Json;
 
 namespace MeliLibToolsNext

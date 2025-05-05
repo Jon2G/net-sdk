@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MeliLibToolsNext.APIs.LegoInterfaces;
+﻿using MeliLibToolsNext.APIs.LegoInterfaces;
 using Newtonsoft.Json;
 
 namespace MeliLibToolsNext.APIs.Response

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-
-namespace MeliLibToolsNext.APIs.Request
+﻿namespace MeliLibToolsNext.APIs.Request
 {
     public class QueryParameter(string name, object? value = null, int? order = 0, QueryParameterType? parameterType = null)
     {

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Flurl.Http;
-using Flurl.Http.Newtonsoft;
 using MeliLibToolsNext.APIs.Request;
 using MeliLibToolsNext.APIs.Response;
-using MeliLibToolsNext.APIs.Response.Users;
 using MeliLibToolsNext.Attributes;
 
 namespace MeliLibToolsNext.APIs.Base

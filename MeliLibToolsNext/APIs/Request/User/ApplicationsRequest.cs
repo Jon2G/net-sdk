@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MeliLibToolsNext.APIs.Request.User
+﻿namespace MeliLibToolsNext.APIs.Request.User
 {
     public class ApplicationsRequest(int? userId = null, string? applicationId = null) : RequestBase(query:
     [

@@ -1,12 +1,4 @@
-﻿using MeliLibToolsNext.APIs.Response.Users;
-using MeliLibToolsNext.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MeliLibToolsNext.APIs.Request.User
+﻿namespace MeliLibToolsNext.APIs.Request.User
 {
     public class ClassifiedsPromotionPacksRequest(int userId,string? listingType = null, string? categoryId = null) : RequestBase(query:
     [
